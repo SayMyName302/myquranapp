@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quranapp/pages/home_screen.dart';
 void main() {
-  runApp(myApp());
+  runApp(QuranApp());
 }
 
-class myApp extends StatelessWidget {
-  const myApp({super.key});
+class QuranApp extends StatelessWidget {
+  const QuranApp({super.key});
 
   @override
   Widget build(BuildContext context) {

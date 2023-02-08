@@ -25,9 +25,9 @@ s=DateTime.now().second;
 Timer.periodic (const Duration (seconds: 1), (Timer t)=>getTime());
 }
 
-
-getTime() {
-setState((){
+getTime() 
+{
+  setState((){
 H=DateTime.now().hour;
 h=(DateTime.now().hour>12) ?DateTime.now().hour-12: (DateTime.now().hour==0)?12: DateTime.now().hour;
 m-DateTime.now() .minute;
