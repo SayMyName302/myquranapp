@@ -2,14 +2,34 @@ import 'package:flutter/material.dart';
 
 import 'package:quranapp/consts/consts.dart';
 import 'package:quranapp/custom_widgets/image_card.dart';
-
-class HomeScreen extends StatelessWidget {
+import 'package:quranapp/time.dart';
+class HomeScreen extends StatefulWidget {
   
-  const HomeScreen({super.key});
+   HomeScreen({super.key});
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+     String _timeString = "00:00";
+     String _prayer = '';
+   @override
+  void initState() {
+    super.initState();
+    CurrentTime.getCurrentTime((time) {
+      setState(() {
+        _timeString = time;
+      });
+    });
+  }
+
+
+
+    
+  @override
   Widget build(BuildContext context) {
-    var time =DateTime.now();
+    
     var screenWidth = MediaQuery.of(context).size.width;
     var cardWidth = screenWidth * 0.95;
     var screenWidth2ndcard = MediaQuery.of(context).size.width;
@@ -42,10 +62,12 @@ class HomeScreen extends StatelessWidget {
               )),
         ],
       ),
+      
       body: Center(
         child: Stack(
           alignment: Alignment.center,
           children: [
+           
             Positioned(
               top: 10,
               child: Card(
@@ -65,12 +87,23 @@ class HomeScreen extends StatelessWidget {
                       fit: BoxFit.cover,
                     ),
                   ),
-                    child: const Center(
-                child: Text("Some Text", style: TextStyle(color: Colors.white),),
-              ),
+                  
+                    child:  Center(
+                      
+                child: Text(_timeString, style: const TextStyle(color: Colors.white,fontFamily:'Montserrat',fontSize: 40,fontWeight: FontWeight.bold),
+                
+                
+                
                 ),
+                
               ),
+              
+                ),
+                
+              ),
+              
             ),
+            
             Positioned(
               top: 195,
               child: Card(

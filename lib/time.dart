@@ -1,42 +1,30 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
+class CurrentTime {
+  static void getCurrentTime(Function updateUI) {
+    Timer.periodic(Duration(seconds: 1), (timer) {
+      var currentTime = DateTime.now();
+      int hour = currentTime.hour;
+      int minute = currentTime.minute;
+      
+      String amPm = "AM";
 
-class TimeShow extends StatefulWidget {
-  const TimeShow({super.key});
+      if (hour >= 12) {
+        amPm = "PM";
+        if (hour > 12) {
+          hour = hour - 12;
+        }
+      }
 
-  @override
-  State<TimeShow> createState() => _TimeShowState();
-}
+      if (hour == 0) {
+        hour = 12;
+      }
+String minuteString = (minute < 10) ? "0$minute" : "$minute";
+String hourString = (hour < 10) ? "0$hour" : "$hour";
+      String timeString = "$hourString:$minuteString $amPm";
 
-class _TimeShowState extends State<TimeShow> {
-
-late int H;
-  late int h;
- late  int m;
-late  int s;
-  @override
-void initState() {
-  super.initState();
-H=DateTime.now().hour;
-h=(DateTime.now().hour>12) ?DateTime.now().hour-12: (DateTime.now().hour==0)?12: DateTime.now().hour;
-m=DateTime.now() .minute;
-s=DateTime.now().second;
-Timer.periodic (const Duration (seconds: 1), (Timer t)=>getTime());
-}
-
-getTime() 
-{
-  setState((){
-H=DateTime.now().hour;
-h=(DateTime.now().hour>12) ?DateTime.now().hour-12: (DateTime.now().hour==0)?12: DateTime.now().hour;
-m-DateTime.now() .minute;
-3-DateTime.now().second;
-});
-}
-
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
+      // call updateUI to update the UI
+      updateUI(timeString);
+    });
   }
 }

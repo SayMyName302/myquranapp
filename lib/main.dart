@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quranapp/pages/home_screen.dart';
+import 'package:quranapp/pages/videoplayer.dart';
 void main() {
   runApp(QuranApp());
 }
@@ -25,7 +26,7 @@ class QuranApp extends StatelessWidget {
       ),
      //initial route mein back slash/ replace hojata hai
       routes: {
-        "/": (context) => const HomeScreen(),
+        "/": (context) =>   HomeScreen(),
        // "/home": (context) => HomePage(),
        // "/Login": (context) => LoginPage(),
       },
