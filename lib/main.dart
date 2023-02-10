@@ -17,10 +17,11 @@ class QuranApp extends StatelessWidget {
     return MaterialApp(
       themeMode: ThemeMode.light,
       theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
+        primarySwatch: Colors.red,
         fontFamily: GoogleFonts.lato().fontFamily,
       ),
 
+        debugShowCheckedModeBanner: false,
       darkTheme: ThemeData(
         brightness: Brightness.light,
       ),
@@ -32,4 +33,5 @@ class QuranApp extends StatelessWidget {
       },
     );
   }
+ 
 }
