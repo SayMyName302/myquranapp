@@ -10,8 +10,6 @@ import 'package:hijri/hijri_calendar.dart';
 import 'package:quranapp/models/aya_of_the_day.dart';
 import 'package:quranapp/services/api_services.dart';
 
-
-
 import 'package:quranapp/consts/strings.dart';
 
 import '../date.dart';
@@ -88,272 +86,291 @@ class _HomeScreenState extends State<HomeScreen> {
               )),
         ],
       ),
-      body: Center(
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            Positioned(
-              top: 10,
-              child: Card(
-                clipBehavior: Clip.antiAliasWithSaveLayer,
-                elevation: 10,
-                color: const Color.fromARGB(255, 63, 64, 151),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Container(
-                  width: cardWidth,
-                  height: 220,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: NetworkImage(
-                          "https://img.freepik.com/premium-vector/landscape-mosque-desert-that-looks-beautiful-purple_205077-244.jpg"),
-                      fit: BoxFit.cover,
+      body: SingleChildScrollView(
+        child: Center(
+          child: SizedBox(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Positioned(
+                  top: 10,
+                  child: Card(
+                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                    elevation: 10,
+                    color: const Color.fromARGB(255, 63, 64, 151),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
                     ),
-                  ),
-                  child: Stack(
-                    children: [
-                      Positioned(
-                        top: 0,
-                        left: 0,
-                        child: Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Text(
-                            newText,
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontFamily: 'RalewayMedium',
-                              fontSize: 15,
-                            ),
-                          ),
+                    child: Container(
+                      width: cardWidth,
+                      height: 220,
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                          image: NetworkImage(
+                              "https://img.freepik.com/premium-vector/landscape-mosque-desert-that-looks-beautiful-purple_205077-244.jpg"),
+                          fit: BoxFit.cover,
                         ),
                       ),
-                      Positioned(
-                        top: 15,
-                        child: Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: RichText(
-                              text: TextSpan(children: <InlineSpan>[
-                            WidgetSpan(
-                                child: Text(
-                              _hirji.hDay.toString() + ' ',
-                              style: const TextStyle(
-                                  fontSize: 17,
-                                  color: Color.fromARGB(255, 255, 255, 255),
-                                  fontFamily: 'RalewayMedium'),
-                            )),
-                            WidgetSpan(
+                      child: Stack(
+                        children: [
+                          Positioned(
+                            top: 0,
+                            left: 0,
+                            child: Padding(
+                              padding: const EdgeInsets.all(10.0),
                               child: Text(
-                                _hirji.longMonthName + ' ',
+                                newText,
                                 style: const TextStyle(
-                                    fontSize: 17,
-                                    color: Color.fromARGB(255, 255, 255, 255),
-                                    fontFamily: 'RalewayMedium',
-                                    fontWeight: FontWeight.bold),
+                                  color: Colors.white,
+                                  fontFamily: 'RalewayMedium',
+                                  fontSize: 15,
+                                ),
                               ),
                             ),
-                            WidgetSpan(
-                              child: Text('${_hirji.hYear} AH',
+                          ),
+                          Positioned(
+                            top: 15,
+                            child: Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: RichText(
+                                  text: TextSpan(children: <InlineSpan>[
+                                WidgetSpan(
+                                    child: Text(
+                                  _hirji.hDay.toString() + ' ',
                                   style: const TextStyle(
                                       fontSize: 17,
                                       color: Color.fromARGB(255, 255, 255, 255),
-                                      fontFamily: 'RalewayMedium')),
+                                      fontFamily: 'RalewayMedium'),
+                                )),
+                                WidgetSpan(
+                                  child: Text(
+                                    _hirji.longMonthName + ' ',
+                                    style: const TextStyle(
+                                        fontSize: 17,
+                                        color:
+                                            Color.fromARGB(255, 255, 255, 255),
+                                        fontFamily: 'RalewayMedium',
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                                WidgetSpan(
+                                  child: Text('${_hirji.hYear} AH',
+                                      style: const TextStyle(
+                                          fontSize: 17,
+                                          color: Color.fromARGB(
+                                              255, 255, 255, 255),
+                                          fontFamily: 'RalewayMedium')),
+                                ),
+                              ])),
                             ),
-                          ])),
-                        ),
-                      ),
-                      Center(
-                        child: Text(
-                          _timeString,
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontFamily: 'Montserrat',
-                            fontSize: 40,
-                            fontWeight: FontWeight.bold,
                           ),
-                        ),
+                          Center(
+                            child: Text(
+                              _timeString,
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontFamily: 'Montserrat',
+                                fontSize: 40,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
                 ),
-              ),
-            ),
-            Positioned(
-              top: 195,
-              child: Card(
-                elevation: 10,
-                color: const Color.fromARGB(255, 236, 235, 235),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Container(
-                  width: card2Width,
-                  height: 220,
-                  child: Stack(
-                    children: [
-                      Positioned(
-                        top: 0,
-                        left: 0,
-                        child: Padding(
-                          padding: const EdgeInsets.all(20.0),
-                          child: Row(
-                            children: [
-                              FutureBuilder<AyaOfTheday>(
-                                  future: _ayaOfTheDayFuture,
-                                  builder: (context, snapshot) {
-                                    switch (snapshot.connectionState) {
-                                      case ConnectionState.none:
-                                        return const Icon(Icons.sync_problem);
-                                      case ConnectionState.waiting:
-                                      case ConnectionState.active:
-                                        return const CircularProgressIndicator();
-                                      case ConnectionState.done:
-                                        return SingleChildScrollView(
-                                          child: SizedBox(
-                                            height: 500,
-                                            width: card2Width,
-                                            child: Wrap(
-                                              spacing:
-                                                  2, // spacing between items
-                                              runSpacing: 2,
-                                              children: [
-                                                Row(
+                Positioned(
+                  top: 195,
+                  child: Card(
+                    elevation: 10,
+                    color: const Color.fromARGB(255, 236, 235, 235),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Container(
+                      width: card2Width,
+                      height: 220,
+                      child: Stack(
+                        children: [
+                          Positioned(
+                            top: 0,
+                            left: 0,
+                            child: Padding(
+                              padding: const EdgeInsets.all(20.0),
+                              child: Row(
+                                children: [
+                                  FutureBuilder<AyaOfTheday>(
+                                      future: _ayaOfTheDayFuture,
+                                      builder: (context, snapshot) {
+                                        switch (snapshot.connectionState) {
+                                          case ConnectionState.none:
+                                            return const Icon(
+                                                Icons.sync_problem);
+                                          case ConnectionState.waiting:
+                                          case ConnectionState.active:
+                                            return const CircularProgressIndicator();
+                                          case ConnectionState.done:
+                                            return SingleChildScrollView(
+                                              child: SizedBox(
+                                                height: 500,
+                                                width: card2Width,
+                                                child: Wrap(
+                                                  spacing:
+                                                      2, // spacing between items
+                                                  runSpacing: 2,
                                                   children: [
-                                                    Image.asset(
-                                                      'assets/quran.png',
-                                                      width: 25,
-                                                      height: 25,
+                                                    Row(
+                                                      children: [
+                                                        Image.asset(
+                                                          'assets/quran.png',
+                                                          width: 25,
+                                                          height: 25,
+                                                        ),
+                                                        const SizedBox(
+                                                            width: 8),
+                                                        const Text(
+                                                          "Quran Aya of the Day",
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.black,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold),
+                                                        ),
+                                                        const SizedBox(
+                                                            width: 99),
+                                                        const Icon(
+                                                          Icons.share,
+                                                          color: Colors.red,
+                                                        ),
+                                                      ],
                                                     ),
-                                                    const SizedBox(width: 8),
-                                                    const Text(
-                                                      "Quran Aya of the Day",
-                                                      style: TextStyle(
-                                                          color: Colors.black,
-                                                          fontWeight:
-                                                              FontWeight.bold),
+                                                    const Divider(
+                                                      color: Colors.black,
+                                                      thickness: 0.5,
                                                     ),
-                                                    const SizedBox(width: 99),
-                                                    const Icon(
-                                                      Icons.share,
-                                                      color: Colors.red,
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              right: 30),
+                                                      child: Center(
+                                                        child: Text(
+                                                          snapshot
+                                                              .data!.arText!,
+                                                          style: const TextStyle(
+                                                              color:
+                                                                  Colors.black,
+                                                              fontSize: 16,
+                                                              fontFamily:
+                                                                  'Raleway',
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              right: 30),
+                                                      child: Center(
+                                                        child: Text(
+                                                          snapshot
+                                                              .data!.enTran!,
+                                                          style: const TextStyle(
+                                                              color: Colors
+                                                                  .black54,
+                                                              fontSize: 12,
+                                                              fontFamily:
+                                                                  'Raleway',
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    RichText(
+                                                      text: TextSpan(children: <
+                                                          InlineSpan>[
+                                                        WidgetSpan(
+                                                          child: Text(
+                                                            snapshot.data!
+                                                                .surNumber!
+                                                                .toString(),
+                                                            style: const TextStyle(
+                                                                fontSize: 18,
+                                                                color: Colors
+                                                                    .red), // Padding
+                                                          ),
+                                                        ),
+                                                        const TextSpan(
+                                                            text: '  '),
+                                                        WidgetSpan(
+                                                          child: Text(
+                                                            snapshot.data!
+                                                                .surEnName!,
+                                                            style:
+                                                                const TextStyle(
+                                                                    fontSize:
+                                                                        18,
+                                                                    color: Colors
+                                                                        .red),
+                                                          ),
+                                                        ),
+                                                      ]),
                                                     ),
                                                   ],
                                                 ),
-                                                const Divider(
-                                                  color: Colors.black,
-                                                  thickness: 0.5,
-                                                ),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                          right: 30),
-                                                  child: Center(
-                                                    child: Text(
-                                                      snapshot.data!.arText!,
-                                                      style: const TextStyle(
-                                                          color: Colors.black,
-                                                          fontSize: 16,
-                                                          fontFamily: 'Raleway',
-                                                          fontWeight:
-                                                              FontWeight.bold),
-                                                    ),
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                          right: 30),
-                                                  child: Center(
-                                                    child: Text(
-                                                      snapshot.data!.enTran!,
-                                                      style: const TextStyle(
-                                                          color: Colors.black54,
-                                                          fontSize: 12,
-                                                          fontFamily: 'Raleway',
-                                                          fontWeight:
-                                                              FontWeight.bold),
-                                                    ),
-                                                  ),
-                                                ),
-                                                RichText(
-                                                  text: TextSpan(children: <
-                                                      InlineSpan>[
-                                                    WidgetSpan(
-                                                      child: Text(
-                                                        snapshot
-                                                            .data!.surNumber!
-                                                            .toString(),
-                                                        style: const TextStyle(
-                                                            fontSize: 18,
-                                                            color: Colors
-                                                                .red), // Padding
-                                                      ),
-                                                    ),
-                                                    const TextSpan(text: '  '),
-                                                    WidgetSpan(
-                                                      child: Text(
-                                                        snapshot
-                                                            .data!.surEnName!,
-                                                        style: const TextStyle(
-                                                            fontSize: 18,
-                                                            color: Colors.red),
-                                                      ),
-                                                    ),
-                                                  ]),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        );
-                                    }
-                                  })
-                            ],
+                                              ),
+                                            );
+                                        }
+                                      })
+                                ],
+                              ),
+                            ),
                           ),
-                        ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
                 ),
-              ),
-            ),
-
-     Positioned(
-              top: 440,
-              child: Container(
-                width: card2Width,
-                height: 220,
-                child: Stack(
-                  children: const [
-                    Positioned(
-                      top: 0,
-                      left: 0,
-                     child: Text('Prayer Timing',style: (TextStyle(fontFamily: 'Raleway',fontWeight: FontWeight.bold)),),
+                Positioned(
+                  top: 440,
+                  child: Container(
+                    width: card2Width,
+                    height: 220,
+                    child: Stack(
+                      children: const [
+                        Positioned(
+                          top: 0,
+                          left: 0,
+                          child: Text(
+                            'Prayer Timing',
+                            style: (TextStyle(
+                                fontFamily: 'Raleway',
+                                fontWeight: FontWeight.bold)),
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
+                  ),
                 ),
-              ),
-            ),
-
-
-     Positioned(
-              top: 470,
-              child: Container(
-                width: card2Width,
-                height: 220,
-                child: Stack(
-                  children:  const [
-                   PrayerCards()
-                  ],
+                Positioned(
+                  top: 470,
+                  child: Container(
+                    width: card2Width,
+                    height: 220,
+                    child: Stack(
+                      children: <Widget>[HorizontalImageList()],
+                    ),
+                  ),
                 ),
-              ),
+              ],
             ),
-
-
-
-
-
-
-          ],
+          ),
         ),
       ),
     );

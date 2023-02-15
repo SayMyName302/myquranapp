@@ -1,36 +1,25 @@
 import 'package:flutter/material.dart';
 
-class PrayerCards extends StatelessWidget {
-  const PrayerCards({super.key});
-
+class HorizontalImageList extends StatelessWidget {
   @override
-@override
-Widget build(BuildContext context) {
-  return Container(
-   
-    height: 120,// set width of container to screen width
-    child: ListView.builder(
-      scrollDirection: Axis.horizontal,
-      itemCount: 5,
-      itemBuilder: (BuildContext context, int index) {
-        return Card(elevation: 0,
-        color: Colors.transparent,
-          child: Container(
-        
-                 // set width of card to 1/5th of screen width
-            child: Column(
-              children: <Widget>[
-                Image.asset(
-                  'assets/image${index + 1}.jpg', // use index to load different images
-                  fit: BoxFit.contain,
-                ),
-              ],
+  Widget build(BuildContext context) {
+    return Container(
+      height: 100.0,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: 5,
+        itemBuilder: (BuildContext context, int index) {
+          return Container(
+            margin: EdgeInsets.all(5.0),
+            child: Image.asset(
+              'assets/image${index + 1}.jpg',
+              width: 100.0,
+              height: 100.0,
+              fit: BoxFit.cover,
             ),
-          ),
-        );
-      },
-    ),
-  );
-}
-
+          );
+        },
+      ),
+    );
+  }
 }
