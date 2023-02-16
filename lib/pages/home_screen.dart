@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import 'package:quranapp/consts/consts.dart';
+import 'package:quranapp/custom_widgets/gridViewCard.dart';
 
 import 'package:quranapp/time.dart';
 
@@ -87,10 +88,11 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
         child: Center(
-          child: SizedBox(
+          child: Container(
             width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
+            height: 950,
             child: Stack(
               alignment: Alignment.center,
               children: [
@@ -364,10 +366,66 @@ class _HomeScreenState extends State<HomeScreen> {
                     width: card2Width,
                     height: 220,
                     child: Stack(
-                      children: <Widget>[HorizontalImageList()],
+                      children: <Widget>[HorizontalImageList(imageTexts: ['Fajar',
+    'Zohr',
+    'Asar',
+    'Maghrib',
+    'Isha',],)],
                     ),
                   ),
                 ),
+                  Positioned(
+                  top: 570,
+                  child: Container(
+                    width: card2Width,
+                    height: 220,
+                    child: Stack(
+                      children: const [
+                        Positioned(
+                          top: 0,
+                          left: 0,
+                          child: Text(
+                            'Explore',
+                            style: (TextStyle(
+                                fontFamily: 'Raleway',
+                                fontWeight: FontWeight.bold)),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+      Positioned(
+                  top: 600,
+                  child: Container(
+                    width: card2Width,
+                    height: 220,
+                    child: Stack(
+        children: const [MyCustomWidget(title1: 'w', title2: 'w', icon1: Icons.abc, icon2: Icons.exit_to_app)],
+                    ),
+                  ),
+                ),
+                Positioned(
+                  top: 700,
+                  child: Container(
+                    width: card2Width,
+                    height: 220,
+                    child: Stack(
+        children: const [MyCustomWidget(title1: 'w', title2: 'w', icon1: Icons.abc, icon2: Icons.exit_to_app)],
+                    ),
+                  ),
+                ),
+                   Positioned(
+                  top: 800,
+                  child: Container(
+                    width: card2Width,
+                    height: 220,
+                    child: Stack(
+        children: const [MyCustomWidget(title1: 'w', title2: 'w', icon1: Icons.abc, icon2: Icons.exit_to_app)],
+                    ),
+                  ),
+                ),
+                
               ],
             ),
           ),
