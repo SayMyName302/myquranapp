@@ -1,37 +1,38 @@
 import 'package:flutter/material.dart';
 
-class HorizontalImageList extends StatelessWidget {
+class ImageListWithText extends StatelessWidget {
+  final List<String> imagePaths;
   final List<String> imageTexts;
 
-  const HorizontalImageList({Key? key, required this.imageTexts}) : super(key: key);
+  const ImageListWithText({
+    Key? key,
+    required this.imagePaths,
+    required this.imageTexts,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 150.0,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: imageTexts.length,
-        itemBuilder: (BuildContext context, int index) {
-          return Container(
-            margin: EdgeInsets.all(5.0),
-            child: Column(
-              children: [
-                Image.asset(
-                  'assets/image${index + 1}.jpg',
-                  width: 60.0,
-                  height: 60.0,
-                  fit: BoxFit.contain,
-                ),
-                SizedBox(height: 5.0),
-                Text( 
-                  imageTexts[index],
-                  style: TextStyle(fontSize: 14.0,fontFamily: 'Raleway'),
-                ),
-              ],
+    final double imageWidth = MediaQuery.of(context).size.width / 7;
+
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: List.generate(
+        5,
+        (index) => Column(
+          children: [
+            Image.asset(
+              imagePaths[index],
+              width: imageWidth,
+              height: imageWidth,
+              fit: BoxFit.cover,
             ),
-          );
-        },
+            SizedBox(height: 8),
+            Text(
+              imageTexts[index],
+              style: TextStyle(fontSize: 13,fontFamily: 'Raleway',),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -110,8 +110,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       height: 220,
                       decoration: const BoxDecoration(
                         image: DecorationImage(
-                          image: NetworkImage(
-                              "https://img.freepik.com/premium-vector/landscape-mosque-desert-that-looks-beautiful-purple_205077-244.jpg"),
+                          image: AssetImage('assets/purplemasjid.jpeg'),
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -213,7 +212,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 Icons.sync_problem);
                                           case ConnectionState.waiting:
                                           case ConnectionState.active:
-                                            return const CircularProgressIndicator();
+                                            return Container(
+                                                alignment: Alignment.center,
+                                                child:
+                                                    const CircularProgressIndicator());
                                           case ConnectionState.done:
                                             return SingleChildScrollView(
                                               child: SizedBox(
@@ -366,15 +368,30 @@ class _HomeScreenState extends State<HomeScreen> {
                     width: card2Width,
                     height: 220,
                     child: Stack(
-                      children: <Widget>[HorizontalImageList(imageTexts: ['Fajar',
-    'Zohr',
-    'Asar',
-    'Maghrib',
-    'Isha',],)],
+                      children: const <Widget>[
+                        Expanded(
+                          child: ImageListWithText(
+                            imageTexts: [
+                              'Fajar',
+                              'Zohr',
+                              'Asar',
+                              'Maghrib',
+                              'Isha',
+                            ],
+                            imagePaths: [
+                              'assets/image1.png',
+                              'assets/image2.png',
+                              'assets/image3.png',
+                              'assets/image4.png',
+                              'assets/image5.png',
+                            ],
+                          ),
+                        )
+                      ],
                     ),
                   ),
                 ),
-                  Positioned(
+                Positioned(
                   top: 570,
                   child: Container(
                     width: card2Width,
@@ -395,13 +412,19 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
-      Positioned(
+                Positioned(
                   top: 600,
                   child: Container(
                     width: card2Width,
                     height: 220,
                     child: Stack(
-        children: const [MyCustomWidget(title1: 'w', title2: 'w', icon1: Icons.abc, icon2: Icons.exit_to_app)],
+                      children: const [
+                        MyCustomWidget(
+                            title1: 'Full Quran',
+                            title2: 'Search',
+                            image1: 'assets/quranicon.png',
+                            image2: 'assets/search.png')
+                      ],
                     ),
                   ),
                 ),
@@ -411,21 +434,32 @@ class _HomeScreenState extends State<HomeScreen> {
                     width: card2Width,
                     height: 220,
                     child: Stack(
-        children: const [MyCustomWidget(title1: 'w', title2: 'w', icon1: Icons.abc, icon2: Icons.exit_to_app)],
+                      children: const [
+                        MyCustomWidget(
+                            title1: 'Quran Milestone',
+                            title2: 'Qibla Direction',
+                            image1: 'assets/milestones.png',
+                            image2: 'assets/qibla.png')
+                      ],
                     ),
                   ),
                 ),
-                   Positioned(
+                Positioned(
                   top: 800,
                   child: Container(
                     width: card2Width,
                     height: 220,
                     child: Stack(
-        children: const [MyCustomWidget(title1: 'w', title2: 'w', icon1: Icons.abc, icon2: Icons.exit_to_app)],
+                      children: const [
+                        MyCustomWidget(
+                            title1: 'Bookmarks',
+                            title2: 'Quran Info',
+                            image1: 'assets/bookmark.png',
+                            image2: 'assets/information.png')
+                      ],
                     ),
                   ),
                 ),
-                
               ],
             ),
           ),

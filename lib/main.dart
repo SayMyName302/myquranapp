@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quranapp/pages/home_screen.dart';
 import 'package:quranapp/pages/videoplayer.dart';
+import 'package:quranapp/custom_widgets/qibla_direction.dart';
+
 void main() {
   runApp(QuranApp());
 }
@@ -21,17 +23,16 @@ class QuranApp extends StatelessWidget {
         fontFamily: GoogleFonts.lato().fontFamily,
       ),
 
-        debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false,
       darkTheme: ThemeData(
         brightness: Brightness.light,
       ),
-     //initial route mein back slash/ replace hojata hai
+      //initial route mein back slash/ replace hojata hai
       routes: {
-        "/": (context) =>   HomeScreen(),
-       // "/home": (context) => HomePage(),
-       // "/Login": (context) => LoginPage(),
+        "/": (context) => QiblaCompass(),
+        // "/home": (context) => HomePage(),
+        // "/Login": (context) => LoginPage(),
       },
     );
   }
- 
 }
